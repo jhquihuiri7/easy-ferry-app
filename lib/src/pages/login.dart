@@ -108,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                             // Guard context usage with mounted check
                             if (mounted) {
                               if (resp['status'] == '200') {
+                                debugPrint(resp['message']);
                                 await SharedPrefs.setString('user', resp['message']!);
                                 Navigator.pushReplacementNamed(context, '/home');
                               } else {

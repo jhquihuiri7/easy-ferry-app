@@ -13,7 +13,8 @@ void main() async {
         DeviceOrientation.portraitDown,
       ]);
   await SharedPrefs.init();
-  String? user = await SharedPrefs.getString('user');
+  String? user = SharedPrefs.getString('user');
+  debugPrint('User from prefs: $user');
   String initialRoute = (user != null && user.isNotEmpty) ? '/home' : '/login';
   runApp(MyApp(initialRoute: initialRoute));
 }
